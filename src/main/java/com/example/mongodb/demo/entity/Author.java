@@ -11,4 +11,9 @@ public class Author {
     private ObjectId id;
     private String firstName;
     private String lastName;
+
+    public String getFullName(){
+        return this.getFirstName() + " " + this.getLastName();
+    }
+
 }

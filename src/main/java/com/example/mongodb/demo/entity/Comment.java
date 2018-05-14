@@ -4,6 +4,7 @@ import lombok.Data;
 import org.bson.types.ObjectId;
 
 import javax.persistence.Id;
+import java.util.List;
 
 @Data
 public class Comment {
@@ -11,4 +12,5 @@ public class Comment {
     private ObjectId id;
     private String title;
     private String description;
+    private List<Comment> subComments;
 }
