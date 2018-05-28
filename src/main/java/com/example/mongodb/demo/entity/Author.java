@@ -1,11 +1,12 @@
 package com.example.mongodb.demo.entity;
 
+import lombok.Builder;
 import lombok.Data;
 import org.bson.types.ObjectId;
-
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
 
 @Data
+@Builder
 public class Author {
     @Id
     private ObjectId id;
@@ -15,5 +16,4 @@ public class Author {
     public String getFullName(){
         return this.getFirstName() + " " + this.getLastName();
     }
-
 }

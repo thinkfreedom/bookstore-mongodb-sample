@@ -10,6 +10,10 @@ buildscript {
     }
 }
 
+configurations {
+    lombok
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -25,12 +29,14 @@ repositories {
 
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-data-mongodb')
-    compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
-    compile('org.springframework.boot:spring-boot-starter-jooq')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     runtime('org.springframework.boot:spring-boot-devtools')
-    compileOnly('org.projectlombok:lombok')
+    compile('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+task runLombok(type: JavaExec) {
+    main = "lombok.launch.Main"
+    classpath configurations.lombok
 }
