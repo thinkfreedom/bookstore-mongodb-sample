@@ -52,9 +52,5 @@ public class DataLoader implements CommandLineRunner{
         book.setAuthors(authors);
 
         bookRepository.save(book);
-
-
-        System.out.println("bookrepo : " + (bookRepository instanceof BookRepository));
-        System.out.println("bookrepo parent : " + (bookRepository instanceof MongoRepository));
     }
 }
